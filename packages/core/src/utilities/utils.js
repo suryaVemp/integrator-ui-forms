@@ -141,7 +141,7 @@ export const evaluateRule: EvaluateRule = (rule = {}, targetValue) => {
 
   if (hasInvalidValue) {
     hasInvalidValue = isNot.some(invalidValue => {
-      if (invalidValue.hasOwnProperty("value")) {
+      if (invalidValue && invalidValue.hasOwnProperty("value")) {
         return valuesMatch(invalidValue.value, targetValue);
       } else {
         return valuesMatch(invalidValue, targetValue);
@@ -172,8 +172,12 @@ export const evaluateAllRules: EvaluateAllRules = (
   if (rules.length) {
     rulesPass = rules.some(rule => {
       if (rule.field && fieldsById.hasOwnProperty(rule.field)) {
-        return evaluateRule(rule, fieldsById[rule.field].value);
-      } else {
+        if (fieldsById[rule.field].visible) {
+          return evaluateRule(rule, fieldsById[rule.field].value);
+        } else {
+          return evaluateRule(rule, '');
+        }
+     } else {
         return defaultResult;
       }
     });
