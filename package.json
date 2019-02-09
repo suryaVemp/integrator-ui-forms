@@ -3,7 +3,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "name": "integrator-ui-forms-monorepo",
+  "name": "integrator-ui-forms",
   "version": "0.0.1",
   "description": "A forms processor for statically declaring forms with dynamic behaviour",
   "scripts": {
