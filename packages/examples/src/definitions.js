@@ -154,6 +154,148 @@ const createTeamForm: FieldDef[] = [
 
 const form1: FieldDef[] = [
   {
+    id:'conn',
+    name:'conn',
+    type:'select',
+    label:'Connection',
+    description:'First choose a connection before continuing',
+    placeholder:'Required',
+    defaultValue:'',
+    options:[
+      {
+        heading:'Connections',
+        items:[
+          {
+            label:'NetSuite',
+            value:'ns',
+          },
+          {
+            label:'REST',
+            value:'rest',
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id:'type',
+    name:'type',
+    type:'select',
+    label:'Record Type',
+    description:'',
+    placeholder:'',
+    defaultValue:'',
+    options:[
+      {
+        items:[
+          'Contact',
+          'Order'
+        ],
+
+      },
+
+    ],
+    visible:false,
+    omitWhenHidden:true,
+    visibleWhen:[
+      {
+        id:'isNetsuite',
+        field:'conn',
+        is:[
+          'ns'
+        ],
+
+      },
+
+    ],
+
+  },
+  {
+    id:'fields',
+    name:'fields',
+    type:'multiselect',
+    label:'Fields',
+    description:'Choose which fields to include in your export record.',
+    placeholder:'',
+    defaultValue:[
+
+    ],
+    refreshOptionsOnChangesTo:'type',
+    visible:false,
+    visibleWhen:[
+      {
+        id:'hasType',
+        field:'type',
+        isNot:[''],
+
+      },
+
+    ],
+
+  },
+  {
+    id:'method',
+    name:'method',
+    type:'select',
+    label:'HTTP Method',
+    description:'What HTTP Verb should be used to make your request?',
+    placeholder:'',
+    defaultValue:'GET',
+    options:[
+      {
+        items:[
+          'GET',
+          'POST',
+          'PUT',
+          'DELETE'
+        ],
+
+      },
+
+    ],
+    visible:false,
+    omitWhenHidden:true,
+    visibleWhen:[
+      {
+        id:'isREST',
+        field:'conn',
+        is:[
+          'rest'
+        ],
+
+      },
+
+    ]
+
+  },
+  {
+    id:'body',
+    name:'body',
+    type:'textarea',
+    label:'HTTP Request Body',
+    description:'POST and PUT requests can have a body. ',
+    placeholder:'optional',
+    multiline:true,
+    rows:4,
+    maxRows:6,
+    defaultValue:'',
+    visible:false,
+    omitWhenHidden:true,
+    visibleWhen:[
+      {
+        id:'allowsBody',
+        field:'method',
+        is:[
+          'POST',
+          'PUT'
+        ],
+      },
+    ],
+  }
+];
+
+const form2: FieldDef[] = [
+  {
     id: "NAME",
     name: "name",
     label: "Name?",
