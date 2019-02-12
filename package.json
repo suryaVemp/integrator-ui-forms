@@ -9,7 +9,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "install": "lerna bootstrap --ignore-prepublish",
+    "install": "lerna bootstrap",
     "postinstall": "lerna run build"
   },
   "license": "MIT",
