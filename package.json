@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "packages/**"
+    "packages/*"
   ],
   "name": "integrator-ui-forms",
   "version": "0.0.1",
@@ -9,7 +9,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "postinstall": "yarn bootstrap && yarn build"
+    "postinstall": "yarn build && cp -a packages/core/dist/. ../material-ui-forms-core"
   },
   "license": "MIT",
   "devDependencies": {
