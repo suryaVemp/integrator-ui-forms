@@ -12,7 +12,7 @@
     "postinstall": "yarn build && cp -a packages/core/dist/. ../material-ui-forms-core"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "lerna": "^2.11.0"
   }
 }
