@@ -8,7 +8,7 @@
   "description": "A forms processor for statically declaring forms with dynamic behaviour",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
+    "build": "lerna run build"
   },
   "license": "MIT",
   "devDependencies": {
