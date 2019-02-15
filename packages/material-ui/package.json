@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile",
-    "build": "webpack --mode production"
+    "build": "webpack --mode development"
   },
   "license": "MIT",
   "dependencies": {

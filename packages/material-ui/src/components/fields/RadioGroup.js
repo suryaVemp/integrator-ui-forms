@@ -45,11 +45,17 @@ class MaterialUiRadioGroup extends React.Component<Field> {
         option.items.map(item => {
           if (typeof item === "string") {
             return (
-              <FormControlLabel value={item} control={<Radio />} label={item} />
+              <FormControlLabel
+                key={item}
+                value={item}
+                control={<Radio />}
+                label={item}
+              />
             );
           } else {
             return (
               <FormControlLabel
+                key={item.value}
                 value={item.value}
                 control={<Radio />}
                 label={item.label || item.value}

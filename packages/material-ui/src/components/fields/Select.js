@@ -46,10 +46,16 @@ class MaterialUiSelect extends React.Component<Field> {
       return itemsSoFar.concat(
         option.items.map(item => {
           if (typeof item === "string") {
-            return <MenuItem value={item}>{item}</MenuItem>;
+            return (
+              <MenuItem key={item} value={item}>
+                {item}
+              </MenuItem>
+            );
           } else {
             return (
-              <MenuItem value={item.value}>{item.label || item.value}</MenuItem>
+              <MenuItem key={item.value} value={item.value}>
+                {item.label || item.value}
+              </MenuItem>
             );
           }
         })
