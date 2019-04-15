@@ -5,7 +5,6 @@ import { FieldWrapper } from "react-forms-processor";
 import type { Field, FieldDef } from "react-forms-processor";
 import styled from "styled-components";
 import { Field as AkField, ErrorMessage } from "@atlaskit/form";
-import TextField from "@atlaskit/textfield";
 
 const Layout = styled.div`
   label {
@@ -28,7 +27,8 @@ class AtlaskitFieldText extends React.Component<Field> {
       required,
       value,
       label,
-      autofocus
+      autofocus,
+      shouldFitContainer
     } = this.props;
     return (
       <AkField
@@ -58,6 +58,7 @@ class AtlaskitFieldText extends React.Component<Field> {
                   isInvalid={!isValid}
                   disabled={disabled}
                   autoFocus={autofocus}
+                  shouldFitContainer={shouldFitContainer}
                 />
               </Layout>
               {!isValid && <ErrorMessage>{errorMessages}</ErrorMessage>}
@@ -71,7 +72,6 @@ class AtlaskitFieldText extends React.Component<Field> {
 
 export default (props: FieldDef) => (
   <FieldWrapper {...props}>
-    {/* $FlowFixMe */}
     <AtlaskitFieldText />
   </FieldWrapper>
 );

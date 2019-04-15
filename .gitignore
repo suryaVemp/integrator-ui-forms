@@ -1,6 +1,12 @@
 node_modules
+<<<<<<< HEAD
 yarn-error.log
 lerna-debug.log
 **/dist/**
 **/npm-debug.log
 .vscode/
+=======
+dist
+yarn-error.log
+lerna-debug.log
+>>>>>>> 577f148bdf1ea11c9d8ac0a123960a2147f25277
